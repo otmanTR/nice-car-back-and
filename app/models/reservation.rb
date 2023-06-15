@@ -4,5 +4,5 @@ class Reservation < ApplicationRecord
 
   validates :start_date, :end_date, :city, presence: true
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_before_start_date
- 
+
 end
