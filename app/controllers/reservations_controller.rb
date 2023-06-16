@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   def index
     @reservations = Reservation.all
-
+    
     render json: @reservations
   end
 
