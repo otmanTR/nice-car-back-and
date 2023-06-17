@@ -1,9 +1,10 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
-  
+
   def index
     list_reservations = Reservation.includes(car: [:images])
-      .where(user_id: current_user_id).as_json(include: { car: { only: %i[ name description price ], include: :images } })
+      .where(user_id: current_user_id).as_json(include: { car: { only: %i[name description price],
+                                                                 include: :images } })
 
     render json: {
       data: {
