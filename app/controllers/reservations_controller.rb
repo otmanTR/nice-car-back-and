@@ -1,52 +1,59 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
-
-  # GET /reservations
+  
   def index
-    @reservations = Reservation.all
+    list_reservations = Reservation.includes(car: [:images])
+      .where(user_id: current_user_id).as_json(include: { car: { only: %i[ name description price ], include: :images } })
 
-    render json: @reservations
+    render json: {
+      data: {
+        reservations: list_reservations
+      }
+    }, status: :ok
   end
 
-  # GET /reservations/1
-  def show
-    render json: @reservation
-  end
-
-  # POST /reservations
   def create
-    @reservation = Reservation.new(reservation_params)
+    reservation = Reservation.new(reservation_params.merge(user_id: current_user_id))
 
-    if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+    if reservation.save
+      render json: {
+        operation: 'reservation created successfully',
+        data: {
+          reservation_id: reservation.id
+        }
+      }, status: :created
     else
-      render json: @reservation.errors, status: :unprocessable_entity
+      render json: {
+        operation: 'not successful',
+        data: {
+          errors: reservation.errors
+        }
+      }, status: :bad_request
     end
   end
 
-  # PATCH/PUT /reservations/1
-  def update
-    if @reservation.update(reservation_params)
-      render json: @reservation
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /reservations/1
   def destroy
-    @reservation.destroy
+    reservation = Reservation.find_by(id: params[:id], user_id: current_user_id)
+
+    if reservation&.destroy
+      render json: {
+        operation: "reservation with id #{reservation.id} is deleted"
+      }, status: :accepted
+    else
+      render json: {
+        operation: "Couldn't delete reservation with id #{params[:id]}.",
+        data: {
+          errors: {
+            reservation: 'not found'
+          }
+        }
+      }, status: :not_found
+    end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_reservation
-    @reservation = Reservation.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:city, :start_date, :end_date, :car_id, :user_id)
+    params.permit(:start_date, :car_id, :end_date, :city)
   end
 end
