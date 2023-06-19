@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :cars
   resources :users
   
   resources :reservations, only: [:index, :create, :destroy]
