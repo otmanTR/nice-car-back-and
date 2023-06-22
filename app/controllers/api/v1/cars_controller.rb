@@ -35,7 +35,12 @@ class Api::V1::CarsController < ApplicationController
 
   # DELETE /cars/1
   def destroy
-    @car.destroy
+    @car = Car.find(params[:id])
+    if @car.destroy
+      render json: { message: 'car deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete car' }, status: :unprocessable_entity
+    end
   end
 
   private
