@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user
   def index
-    @users = User.includes(:reservation)
+    @users = User.all
     render json: @users
+    print @users
+  end
+
+  def create
+    user = User.new(user_params)
+    if user.save
+      token = issue_token(user)
+      render json: { user: UserSerializer.new(user), jwt: token }
+    elsif user.errors.messages
+      render json: { error: user.errors.messages }
+    else
+      render json: { error: 'User could not be created. Please try again.' }
+    end
   end
 
   def register
@@ -28,7 +40,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :email, :password)
   end
 end
