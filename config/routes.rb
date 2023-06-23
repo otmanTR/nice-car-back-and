@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  
-  resources :users  
+  resources :users
+  post "/signup", to: "users#create"
+  post "/login", to: "sessions#create"
+  get "/authorized", to: "sessions#show"
+  get "/dashboard", to: "users#show"
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  get 'login', to: 'sessions#new'
 
   namespace :api do
     namespace :v1 do
