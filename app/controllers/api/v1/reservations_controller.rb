@@ -2,15 +2,18 @@ class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
 
   def index
-    list_reservations = Reservation.includes(car: [:images])
-      .where(user_id: current_user_id).as_json(include: { car: { only: %i[name description price],
-                                                                 include: :images } })
-
-    render json: {
-      data: {
-        reservations: list_reservations
+    @reservations = Reservation.includes(:car).all
+    @reservation_data = @reservations.map do |reservation|
+      {
+        image: reservation.car.image,
+        id: reservation.id,
+        city: reservation.city,
+        start_date: reservation.start_date,
+        end_date: reservation.end_date,
+        name: reservation.car.name
       }
-    }, status: :ok
+    end
+    render json: @reservation_data
   end
 
   def create
@@ -34,21 +37,11 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation = Reservation.find_by(id: params[:id], user_id: current_user_id)
-
-    if reservation&.destroy
-      render json: {
-        operation: "reservation with id #{reservation.id} is deleted"
-      }, status: :accepted
+    @reservation = Reservation.find(params[:id])
+    if @reservation.destroy
+      render json: { message: 'reservation deleted successfully' }, status: :ok
     else
-      render json: {
-        operation: "Couldn't delete reservation with id #{params[:id]}.",
-        data: {
-          errors: {
-            reservation: 'not found'
-          }
-        }
-      }, status: :not_found
+      render json: { error: 'Failed to delete reservation' }, status: :unprocessable_entity
     end
   end
 
