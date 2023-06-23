@@ -3219,3 +3219,71 @@ Started GET "/favicon.ico" for ::1 at 2023-06-23 18:05:07 +0300
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+Started GET "/" for 127.0.0.1 at 2023-06-23 22:42:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Users/Admin/.local/share/gem/ruby/3.2.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Users/Admin/.local/share/gem/ruby/3.2.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 153.3ms | Allocations: 529)
+Completed 200 OK in 758ms (Views: 277.5ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-06-23 22:42:34 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.0ms | Allocations: 2944)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00000000009a10>):
+  
+app/controllers/application_controller.rb:25:in `current_user'
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-06-23 22:42:35 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-06-23 22:49:44 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 167)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00000000009d80>):
+  
+app/controllers/application_controller.rb:25:in `current_user'
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-06-23 22:50:52 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 16ms (Allocations: 1807)
+
+
+  
+NameError (undefined local variable or method `users' for #<UsersController:0x0000000000e218>):
+  
+app/controllers/application_controller.rb:25:in `current_user'
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-06-23 22:52:08 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+No serializer found for resource: #<User id: 1, name: "soni", created_at: "2023-06-23 13:49:35.122752000 +0000", updated_at: "2023-06-23 13:49:35.122752000 +0000", email: "aliceg@gmail.com", password_digest: [FILTERED]>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (2.14ms)
+Completed 200 OK in 334ms (Views: 312.2ms | ActiveRecord: 64.5ms | Allocations: 10890)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-06-23 22:52:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Started GET "/signup" for 127.0.0.1 at 2023-06-23 22:55:30 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-06-23 22:55:41 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+No serializer found for resource: #<User id: 1, name: "soni", created_at: "2023-06-23 13:49:35.122752000 +0000", updated_at: "2023-06-23 13:49:35.122752000 +0000", email: "aliceg@gmail.com", password_digest: [FILTERED]>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (0.52ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.5ms | Allocations: 1027)
+
+
