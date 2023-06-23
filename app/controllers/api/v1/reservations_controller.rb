@@ -17,7 +17,8 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(reservation_params.merge(user_id: current_user_id))
+    
+    reservation = Reservation.new(reservation_params)
 
     if reservation.save
       render json: {
@@ -48,6 +49,7 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.permit(:start_date, :car_id, :end_date, :city)
+    params.require(:reservation).permit(:start_date, :end_date, :city, :car_id, :user_id)
   end
+  
 end
