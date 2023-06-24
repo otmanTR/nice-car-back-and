@@ -2,46 +2,37 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     render json: @users
-    print @users
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      token = issue_token(user)
-      render json: { user: UserSerializer.new(user), jwt: token }
-    elsif user.errors.messages
-      render json: { error: user.errors.messages }
+    @user = User.create(user_params)
+    if @user.valid?
+      token = encode_token({user_id: @user.id})
+      render json: {user: @user, token: token}
     else
-      render json: { error: 'User could not be created. Please try again.' }
+      render json: {error: "Invalid username or password"}
     end
   end
-
-  def register
-    if User.find_by(user_params).nil?
-      @user = User.new(user_params)
-      if @user.save
-        render json: { status: 'SUCCESS', message: 'User created', data: @user }, status: :ok
-      else
-        render json: { status: 'ERROR', message: 'User not created', data: @user.errors },
-               status: :unprocessable_entity
-      end
-    else
-      render json: { status: 'ERROR', message: 'User already exists' }, status: :unprocessable_entity
-    end
-  end
-
+  # LOGGING IN
   def login
-    @user = User.find_by(user_params)
-    if @user.nil?
-      render json: { status: 'ERROR', message: 'User not found' }, status: :unprocessable_entity
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      token = encode_token({user_id: @user.id})
+      render json: {user: @user, token: token}
     else
-      render json: { status: 'SUCCESS', message: 'User logged in', data: @user }, status: :ok
+      render json: {error: "Invalid username or password"}
     end
   end
-
+  def auto_login
+    render json: @user
+  end
   private
-
+  def user_params
+    params.permit(:username, :password)
+  end
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
