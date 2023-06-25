@@ -3456,3 +3456,144 @@ Filter chain halted as :authorized rendered or redirected
 Completed 401 Unauthorized in 22ms (Views: 14.9ms | Allocations: 171)
 
 
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:39:35 +0300
+  
+Zeitwerk::NameError (expected file C:/Users/Admin/nice-car-back-and/app/controllers/api/v1/cars_controller.rb to define constant Api::V1::CarsController, but didn't):
+  
+zeitwerk (2.6.8) lib/zeitwerk/loader/callbacks.rb:25:in `on_file_autoloaded'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:31:in `require'
+activesupport (7.0.5) lib/active_support/inflector/methods.rb:280:in `const_get'
+activesupport (7.0.5) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.5) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.0.5) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.0.5) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (7.0.5) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (7.0.5) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.0.5) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.0.5) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.0.5) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.5) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.5) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+activerecord (7.0.5) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.5) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.5) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.5) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.5) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.5) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.5) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.5) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.5) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.5) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.5) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.5) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.5) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:39:36 +0300
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CarsController):
+  
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:39:40 +0300
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CarsController):
+  
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:39:40 +0300
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CarsController):
+  
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:41:27 +0300
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CarsController):
+  
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:41:28 +0300
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CarsController):
+  
+Started GET "/users" for ::1 at 2023-06-24 15:41:35 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.6ms | Allocations: 171)
+
+
+Started GET "/users" for ::1 at 2023-06-24 15:46:00 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 4.1ms | Allocations: 338)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:57:20 +0300
+  
+TypeError (superclass mismatch for class CarsController):
+  
+app/controllers/api/v1/cars_controller.rb:1:in `<main>'
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-24 15:57:21 +0300
+  
+TypeError (superclass mismatch for class CarsController):
+  
+app/controllers/api/v1/cars_controller.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2023-06-24 17:01:15 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.57ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 14ms (Views: 10.0ms | Allocations: 172)
+
+
+Started GET "/users" for ::1 at 2023-06-24 17:03:27 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.5ms | Allocations: 171)
+
+
+Started GET "/users" for ::1 at 2023-06-24 17:15:38 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 3.7ms | Allocations: 171)
+
+
+Started GET "/users" for ::1 at 2023-06-24 17:24:12 +0300
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 3.6ms | Allocations: 171)
+
+
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4417257106460259810)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
