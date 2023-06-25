@@ -1,0 +1,281 @@
+openapi: 3.0.3
+info:
+  title: Car Rental App
+  version: 1.0.0
+paths:
+  "/api/v1/cars":
+    get:
+      summary: Retrieve all cars
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+    post:
+      summary: Create a new car
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarInput'
+      responses:
+        '201':
+          description: Car created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  "/api/v1/cars/{id}":
+    get:
+      summary: Retrieve a car by ID
+      parameters:
+        - name: id
+          in: path
+          description: Car ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      summary: Update a car
+      parameters:
+        - name: id
+          in: path
+          description: Car ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarInput'
+      responses:
+        '200':
+          description: Car updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      summary: Delete a car
+      parameters:
+        - name: id
+          in: path
+          description: Car ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Car deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /reservations:
+    get:
+      summary: Retrieve all reservations
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reservation'
+    post:
+      summary: Create a new reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+      responses:
+        '201':
+          description: Reservation created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /reservations/{id}:
+    get:
+      summary: Retrieve a reservation by ID
+      parameters:
+        - name: id
+          in: path
+          description: Reservation ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      summary: Update a reservation
+      parameters:
+        - name: id
+          in: path
+          description: Reservation ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+      responses:
+        '200':
+          description: Reservation updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      summary: Delete a reservation
+      parameters:
+        - name: id
+          in: path
+          description: Reservation ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Reservation deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Car:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        image:
+          type: string
+        model:
+          type: string
+        price:
+          type: number
+      required:
+        - name
+        - image
+        - model
+        - price
+    CarInput:
+      type: object
+      properties:
+        name:
+          type: string
+        image:
+          type: string
+        model:
+          type: string
+        price:
+          type: number
+      required:
+        - name
+        - image
+        - model
+        - price
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        city:
+          type: string
+      required:
+        - start_date
+        - end_date
+        - city
+    ReservationInput:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        city:
+          type: string
+      required:
+        - start_date
+        - end_date
+        - city
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Bad request parameters
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Resource not found
+security:
+  - JWT: []
+securityDefinitions:
+  JWT:
+    type: apiKey
+    in: header
+    name: Authorization
