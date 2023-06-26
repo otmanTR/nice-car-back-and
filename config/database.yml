@@ -29,10 +29,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: postgres
+  #username: nice_car_back_and
 
   # The password associated with the postgres role (username).
-  password: 12345
+  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -58,10 +58,7 @@ development:
 test:
   <<: *default
   database: nice_car_back_and_test
-  # port: 5432
-  # host: localhost
-  username: postgres
-  password: 12345
+
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -85,6 +82,5 @@ test:
 production:
   <<: *default
   database: nice_car_back_and_production
-  username: postgres
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
- 
+  username: nice_car_back_and
+  password: <%= ENV["NICE_CAR_BACK_AND_DATABASE_PASSWORD"] %>
