@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.5'
@@ -39,6 +39,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -46,6 +48,8 @@ group :development do
   # gem "spring"
 end
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 gem 'rack-cors', require: 'rack/cors'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
+gem 'rubocop', '>= 1.0', '< 2.0'
