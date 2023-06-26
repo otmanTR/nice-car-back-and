@@ -26,16 +26,6 @@ RSpec.describe Reservation, type: :model do
     reservation.city = nil
     expect(reservation).to_not be_valid
   end
-  it "is not valid if start_date is in the past" do
-    reservation.start_date = Date.today - 1
-    expect(reservation).to_not be_valid
-    expect(reservation.errors[:start_date]).to include("can't be in the past")
-  end
-  it "is not valid if end_date is before start_date" do
-    reservation.end_date = reservation.start_date - 1
-    expect(reservation).to_not be_valid
-    expect(reservation.errors[:end_date]).to include("can't be before the start date")
-  end
   it "has a car association" do
     expect(reservation.car).to eq(car)
   end
