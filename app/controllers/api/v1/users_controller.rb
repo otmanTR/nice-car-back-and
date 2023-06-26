@@ -1,19 +1,26 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.includes(:reservation)
     render json: @users
-    print @users
   end
 
   def create
     user = User.new(user_params)
+
     if user.save
-      token = issue_token(user)
-      render json: { user: UserSerializer.new(user), jwt: token }
-    elsif user.errors.messages
-      render json: { error: user.errors.messages }
+      render json: {
+        operation: 'user created successfully',
+        data: {
+          user_id: user.id
+        }
+      }, status: :created
     else
-      render json: { error: 'User could not be created. Please try again.' }
+      render json: {
+        operation: 'not successful',
+        data: {
+          errors: user.errors
+        }
+      }, status: :bad_request
     end
   end
 
@@ -40,9 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email)
   end
 end
