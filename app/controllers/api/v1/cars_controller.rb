@@ -18,7 +18,7 @@ class Api::V1::CarsController < ApplicationController
     @car = Car.new(car_params)
 
     if @car.save
-      render json: @car, status: :created, location: @car
+      render json: @car, status: :created
     else
       render json: @car.errors, status: :unprocessable_entity
     end
@@ -36,6 +36,7 @@ class Api::V1::CarsController < ApplicationController
   # DELETE /cars/1
   def destroy
     @car = Car.find(params[:id])
+    @car.reservations.destroy_all
     if @car.destroy
       render json: { message: 'car deleted successfully' }, status: :ok
     else
@@ -52,6 +53,6 @@ class Api::V1::CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:name, :image, :model, :price)
+    params.require(:car).permit(:name, :image, :model, :price, :user_id)
   end
 end

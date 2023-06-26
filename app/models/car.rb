@@ -7,5 +7,5 @@ class Car < ApplicationRecord
             numericality: { greater_than: 0, message: 'Price must be greater than 0' }
 
   belongs_to :user
-  has_one :reservation, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end
