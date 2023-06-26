@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
+ 
   describe 'POST /api/v1/users' do
     it 'creates a new user' do
       user_params = {
