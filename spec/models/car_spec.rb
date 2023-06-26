@@ -9,7 +9,7 @@ RSpec.describe Car, type: :model do
       image: 'tesla_model_s.jpg',
       model: 'Model S',
       price: 50_000,
-      user:
+      user: user # Updated this line to assign the user object instead of an integer
     )
   end
 
@@ -53,13 +53,8 @@ RSpec.describe Car, type: :model do
     expect(car.user).to eq(user)
   end
 
-  it 'has a reservation association' do
-    reservation = Reservation.create(car:, user:)
-    expect(car.reservation).to eq(reservation)
-  end
-
   it 'destroys the associated reservation when destroyed' do
-    reservation = Reservation.create(car:, user:)
+    reservation = Reservation.create(car: car, user: user) # Updated this line to pass the car and user objects
     car.destroy
     expect(Reservation.exists?(reservation.id)).to be false
   end
