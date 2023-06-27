@@ -101,7 +101,6 @@ git clone https://github.com/otmanTR/nice-car-back-and
 ``` sh
 RAILS_DATABASE_USER=user
   RAILS_DATABASE_PASSWORD=12345678
-  JWT_SECRET_KEY=JDo6W3hMWX5TVTlVcysxR3tBdkwhdQ
 ```
 
 - Rename the file to `.env`
@@ -166,7 +165,7 @@ rspec spec --exclude-pattern "spec/requests/swagger/**/*_spec.rb"
 
 - LinkedIn: [@joseph-david](https://www.linkedin.com/in/joseph-david-/)
 
-👤 **Burak Otman**
+👤 **Recep Burak Otman**
 
 - GitHub: [@otmanTR](https://github.com/otmanTR)
 
@@ -223,6 +222,6 @@ If you like this project please leave a star. Thank you 🙏
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -90,8 +90,6 @@ GEM
     json (2.6.3)
     json-schema (3.0.0)
       addressable (>= 2.8)
-    jsonapi-renderer (0.2.2)
-    jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -243,7 +241,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.4.12
