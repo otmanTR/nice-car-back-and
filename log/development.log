@@ -8780,3 +8780,921 @@ Processing by Api::V1::CarsController#index as HTML
 Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 847)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-27 20:55:27 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.0.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.0.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.5ms | Allocations: 828)
+Completed 200 OK in 18ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 7595)
+
+
+Started POST "/api/v1/users/login" for 127.0.0.1 at 2023-06-27 20:55:45 +0300
+Processing by Api::V1::UsersController#login as HTML
+  Parameters: {"name"=>"brk", "user"=>{"name"=>"brk"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "brk"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:42:in `login'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.5ms | ActiveRecord: 4.7ms | Allocations: 2149)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2023-06-27 20:55:53 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"name"=>"burak", "email"=>"brk@gmail.com", "user"=>{"name"=>"burak", "email"=>"brk@gmail.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "burak"], ["email", "brk@gmail.com"], ["created_at", "2023-06-27 17:55:53.103668"], ["updated_at", "2023-06-27 17:55:53.103668"]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+Completed 201 Created in 30ms (Views: 0.2ms | ActiveRecord: 7.5ms | Allocations: 18530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:55:55 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:55:55 +0300
+Processing by Api::V1::CarsController#index as HTML
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 39ms (Views: 21.6ms | ActiveRecord: 4.6ms | Allocations: 23631)
+
+
+  [1m[36mCar Load (3.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 18.6ms | ActiveRecord: 16.8ms | Allocations: 22640)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:55:57 +0300
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:55:57 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.7ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  [1m[36mReservation Load (0.7ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 41ms (Views: 1.5ms | ActiveRecord: 5.2ms | Allocations: 26468)
+
+
+Completed 200 OK in 38ms (Views: 2.4ms | ActiveRecord: 4.9ms | Allocations: 25962)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:56:00 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:56:00 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 914)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 847)
+
+
+Started POST "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:56:10 +0300
+Processing by Api::V1::ReservationsController#create as HTML
+  Parameters: {"start_date"=>"2023-06-20", "end_date"=>"2023-06-28", "city"=>"ankara", "car_id"=>"1", "user_id"=>1, "reservation"=>{"city"=>"ankara", "start_date"=>"2023-06-20", "end_date"=>"2023-06-28", "user_id"=>1, "car_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+Completed 400 Bad Request in 24ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 4907)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:56:12 +0300
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:56:12 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 1689)
+
+
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 0.7ms | Allocations: 1531)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:56:22 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 20:56:22 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 897)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 847)
+
+
+Started POST "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:56:36 +0300
+Processing by Api::V1::ReservationsController#create as HTML
+  Parameters: {"start_date"=>"2023-06-29", "end_date"=>"2023-06-28", "city"=>"ankara", "car_id"=>"1", "user_id"=>1, "reservation"=>{"city"=>"ankara", "start_date"=>"2023-06-29", "end_date"=>"2023-06-28", "user_id"=>1, "car_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+Completed 400 Bad Request in 13ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 2938)
+
+
+Started POST "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 20:56:52 +0300
+Processing by Api::V1::ReservationsController#create as HTML
+  Parameters: {"start_date"=>"2023-06-28", "end_date"=>"2023-06-27", "city"=>"ankara", "car_id"=>"1", "user_id"=>1, "reservation"=>{"city"=>"ankara", "start_date"=>"2023-06-28", "end_date"=>"2023-06-27", "user_id"=>1, "car_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:22:in `create'
+Completed 400 Bad Request in 10ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 2920)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:00:48 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.5ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:03 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:03 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 907)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:13 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1, "car"=>{"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (2.1ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "burak"], ["image", "burak"], ["model", 1111], ["price", 12], ["user_id", 1], ["created_at", "2023-06-27 18:06:13.642842"], ["updated_at", "2023-06-27 18:06:13.642842"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 4.6ms | Allocations: 3428)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:15 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1, "car"=>{"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "burak"], ["image", "burak"], ["model", 1111], ["price", 12], ["user_id", 1], ["created_at", "2023-06-27 18:06:15.940160"], ["updated_at", "2023-06-27 18:06:15.940160"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 7.5ms | Allocations: 2854)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:16 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1, "car"=>{"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.6ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "burak"], ["image", "burak"], ["model", 1111], ["price", 12], ["user_id", 1], ["created_at", "2023-06-27 18:06:16.102295"], ["updated_at", "2023-06-27 18:06:16.102295"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 17ms (Views: 0.5ms | ActiveRecord: 8.0ms | Allocations: 2852)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:16 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1, "car"=>{"name"=>"burak", "image"=>"burak", "model"=>"1111", "price"=>"12", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.4ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "burak"], ["image", "burak"], ["model", 1111], ["price", 12], ["user_id", 1], ["created_at", "2023-06-27 18:06:16.243873"], ["updated_at", "2023-06-27 18:06:16.243873"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 15ms (Views: 0.3ms | ActiveRecord: 7.4ms | Allocations: 2852)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:17 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:17 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.8ms | Allocations: 1296)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.1ms | Allocations: 1264)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:24 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:24 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.9ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.9ms | Allocations: 1291)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.4ms | Allocations: 1264)
+
+
+Started DELETE "/api/v1/cars/8" for 127.0.0.1 at 2023-06-27 21:06:27 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 8]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (1.0ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 37ms (Views: 0.4ms | ActiveRecord: 3.8ms | Allocations: 6490)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:28 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:28 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+Processing by Api::V1::CarsController#index as HTML
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.3ms | Allocations: 2400)
+
+
+  [1m[36mCar Load (0.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 26ms (Views: 15.0ms | ActiveRecord: 10.9ms | Allocations: 5082)
+
+
+Started DELETE "/api/v1/cars/7" for 127.0.0.1 at 2023-06-27 21:06:29 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.8ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 7]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (1.3ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 5.9ms | Allocations: 2901)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:29 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:29 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 1102)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1056)
+
+
+Started DELETE "/api/v1/cars/6" for 127.0.0.1 at 2023-06-27 21:06:30 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 6]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.6ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 4.2ms | Allocations: 2832)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:30 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:30 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 987)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 951)
+
+
+Started DELETE "/api/v1/cars/5" for 127.0.0.1 at 2023-06-27 21:06:31 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 5]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.7ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 3.5ms | Allocations: 2833)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:32 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:06:32 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+Processing by Api::V1::CarsController#index as HTML
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 1291)
+
+
+  [1m[36mCar Load (1.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.1ms | Allocations: 1442)
+
+
+Started DELETE "/api/v1/cars/4" for 127.0.0.1 at 2023-06-27 21:07:08 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 4]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.7ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 2834)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:08 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:08 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.6ms | Allocations: 770)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 743)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:13 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 786)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:13 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 743)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:20 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1, "car"=>{"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.6ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "qwe"], ["image", "qwe"], ["model", 1111], ["price", 1111], ["user_id", 1], ["created_at", "2023-06-27 18:07:20.511700"], ["updated_at", "2023-06-27 18:07:20.511700"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 18ms (Views: 0.6ms | ActiveRecord: 7.9ms | Allocations: 2927)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:21 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1, "car"=>{"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "qwe"], ["image", "qwe"], ["model", 1111], ["price", 1111], ["user_id", 1], ["created_at", "2023-06-27 18:07:21.128074"], ["updated_at", "2023-06-27 18:07:21.128074"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 13ms (Views: 0.4ms | ActiveRecord: 7.3ms | Allocations: 2855)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:21 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1, "car"=>{"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "qwe"], ["image", "qwe"], ["model", 1111], ["price", 1111], ["user_id", 1], ["created_at", "2023-06-27 18:07:21.653348"], ["updated_at", "2023-06-27 18:07:21.653348"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 11ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 2852)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:22 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1, "car"=>{"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.6ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "qwe"], ["image", "qwe"], ["model", 1111], ["price", 1111], ["user_id", 1], ["created_at", "2023-06-27 18:07:22.086069"], ["updated_at", "2023-06-27 18:07:22.086069"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 18ms (Views: 0.5ms | ActiveRecord: 7.1ms | Allocations: 2852)
+
+
+Started POST "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:07:22 +0300
+Processing by Api::V1::CarsController#create as HTML
+  Parameters: {"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1, "car"=>{"name"=>"qwe", "image"=>"qwe", "model"=>"1111", "price"=>"1111", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mCar Create (0.7ms)[0m  [1m[32mINSERT INTO "cars" ("name", "image", "model", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "qwe"], ["image", "qwe"], ["model", 1111], ["price", 1111], ["user_id", 1], ["created_at", "2023-06-27 18:07:22.447707"], ["updated_at", "2023-06-27 18:07:22.447707"]]
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:20:in `create'
+Completed 201 Created in 19ms (Views: 0.7ms | ActiveRecord: 7.2ms | Allocations: 2858)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:03 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 1536)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:03 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 1264)
+
+
+Started DELETE "/api/v1/cars/13" for 127.0.0.1 at 2023-06-27 21:11:04 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 13]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.9ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 8.7ms | Allocations: 2831)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:05 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:05 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1191)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1160)
+
+
+Started DELETE "/api/v1/cars/12" for 127.0.0.1 at 2023-06-27 21:11:06 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 12]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.7ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 3.6ms | Allocations: 2831)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:06 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.9ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.9ms | Allocations: 1056)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:06 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 1056)
+
+
+Started DELETE "/api/v1/cars/11" for 127.0.0.1 at 2023-06-27 21:11:07 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 11]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.7ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 2831)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:07 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:07 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 990)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 951)
+
+
+Started DELETE "/api/v1/cars/10" for 127.0.0.1 at 2023-06-27 21:11:08 +0300
+Processing by Api::V1::CarsController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:51:in `set_car'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/cars_controller.rb:38:in `destroy'
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."car_id" = $1[0m  [["car_id", 10]]
+  ↳ app/controllers/api/v1/cars_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mCar Destroy (0.6ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:40:in `destroy'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 2831)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:09 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:09 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 871)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:19 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:22 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:22 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 868)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:28 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:28 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 1.0ms | Allocations: 941)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:29 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:29 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 863)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 1.2ms | Allocations: 847)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:30 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:30 +0300
+  [1m[36mReservation Load (0.9ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 32ms (Views: 0.9ms | ActiveRecord: 1.4ms | Allocations: 1813)
+
+
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 1530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:31 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:31 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 884)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:32 +0300
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:32 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (1.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 11ms (Views: 2.2ms | ActiveRecord: 2.2ms | Allocations: 1569)
+
+
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:32 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:32 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 943)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.0ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 896)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.5ms | Allocations: 847)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.6ms | Allocations: 1653)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 0.7ms | Allocations: 1530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:33 +0300
+Processing by Api::V1::CarsController#index as HTML
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 1.0ms | Allocations: 1246)
+
+
+  [1m[36mCar Load (3.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 3.8ms | Allocations: 1867)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:34 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:34 +0300
+Processing by Api::V1::CarsController#index as HTML
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (2.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 2.7ms | Allocations: 1304)
+
+
+  [1m[36mCar Load (2.9ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 2.9ms | Allocations: 1867)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:35 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 1074)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:35 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:35 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:35 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+Processing by Api::V1::CarsController#index as HTML
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.4ms | Allocations: 1265)
+
+
+  [1m[36mCar Load (2.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 2.3ms | Allocations: 1430)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:35 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 9ms (Views: 1.9ms | ActiveRecord: 0.9ms | Allocations: 1533)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:36 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 1530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:36 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:36 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 873)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.9ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:38 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:38 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 847)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:38 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.7ms | Allocations: 1830)
+
+
+Started GET "/api/v1/reservations" for 127.0.0.1 at 2023-06-27 21:11:38 +0300
+Processing by Api::V1::ReservationsController#index as HTML
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:6:in `map'
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 0.6ms | Allocations: 1530)
+
+
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:39 +0300
+Started GET "/api/v1/cars" for 127.0.0.1 at 2023-06-27 21:11:39 +0300
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.8ms | Allocations: 872)
+
+
+Processing by Api::V1::CarsController#index as HTML
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/api/v1/cars_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 847)
+
+
