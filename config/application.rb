@@ -1,5 +1,4 @@
 require_relative "boot"
-require 'sprockets/railtie'
 
 require "rails/all"
 
