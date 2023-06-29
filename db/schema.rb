@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_104513) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_154543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,9 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_104513) do
     t.string "image"
     t.integer "model"
     t.integer "price"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_104513) do
     t.string "city"
     t.date "start_date"
     t.date "end_date"
-    t.bigint "car_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "car_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_reservations_on_car_id"
@@ -39,9 +39,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_104513) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
   end
 
   add_foreign_key "cars", "users"

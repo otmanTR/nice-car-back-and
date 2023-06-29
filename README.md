@@ -137,7 +137,7 @@ rails db:seed
 
 
 ```sh
-rails s --port=1800
+rails server
 
 ```
 
