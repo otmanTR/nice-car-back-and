@@ -17,6 +17,7 @@
 - [📝 License](#license)
 
 
+
 # 📖 Nice Car Renta Application <a name="about-project"></a>
 
 > Nice Car Rentals Application contains the backend code for a Car Rental App, which allows users to reserve a car, add new cars, and delete existing ones. The backend is built using Ruby On Rails and communicates with the frontend of the app to provide a seamless user experience. The backend includes functionality for user authentication and authorization, allowing only authorized users to perform actions such as adding or deleting cars. It also includes a Postgresql database to store information about the cars available for rental, as well as information about user reservations.
