@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: nice_car_back_and_production
-  username: nice_car_back_and
-  password: <%= ENV["NICE_CAR_BACK_AND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
